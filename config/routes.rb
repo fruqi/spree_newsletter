@@ -1,3 +1,8 @@
 Spree::Core::Engine.routes.draw do
-  # Add your extension routes here
+  namespace :admin do
+    resources :newsletters, except: :show 
+  end
+
+  resources :subscribers, only: [:index, :create], path: :subscribe_newsletter
 end
+

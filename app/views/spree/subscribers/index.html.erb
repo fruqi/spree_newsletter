@@ -1,0 +1,15 @@
+<div id="newsletter-container">
+  <div id="page-header">
+    <h2><%= Spree.t(:subscribe_newsletter) %></h2>
+  </div>
+  <div id="newsletter-form-container">
+    <%= form_for @subscriber, url: subscribers_path do |f| %>
+      <%= f.label 'email' %>
+      <%= f.text_field :email %>
+
+      <div>
+        <%= f.submit 'Subscribe' %>
+      </div>
+    <% end %>
+  </div>
+</div>
