@@ -1,32 +1,50 @@
-
-<div class="sixteen columns">
-  <%= form_for @newsletter, url: admin_newsletters_path do |f| %>
-    <%= field_set_tag do %>
-      <legend style="align: 'center'">Create Newsletter</legend>
-      <div class="row">
-        <div class="sixteen columns ">
-          Today's date: <%= Time.now.strftime('%D') %>
-        </div>
-
-        <div class="sixteen columns ">
-          <%= f.field_container :subject do %>
-            <%= f.label :subject, 'Subject' %>
-            <%= f.text_field :subject, class: 'fullwidth title' %>
-            <%= f.error_message_on :subject %>
-          <% end %>
-        </div>
-        <div class="sixteen columns ">
-          <%= f.field_container :body do %>
-            <%= f.label :body, 'Message' %>
-            <%= f.text_area :body, class: 'fullwidth title' %>
-            <%= f.error_message_on :body %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="form-buttons filter-actions actions">
-        <%= f.submit 'Create', class: 'icon-ok button' %>
-      </div>
-    <% end %>
-  <% end %>
+<div class="four columns alpha">
+  <div class="action">
+    <a href="#" class="button" id="create-newsletter">Create Newsletter</a>
+  </div><br>
+  <ul id="archieve-list">
+    <%= render @newsletters %>
+    <li id="pagination-indicator">
+      <a href="#">See more...</a>
+    </li>
+  </ul>
+  
+  <div style="display: none;">
+    <%= paginate @newsletters %>
+  </div>
 </div>
+
+
+<div class="twelve columns omega" id='main-container'>
+  <%= render 'form' %>
+  <div id="mail-detail" style="overflow: auto;">
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#archieve-list').on('click', '#pagination-indicator a', function(e) {
+    e.preventDefault();
+    var url = $('a[rel=next]').attr('href');
+
+    $(this).text('Fetching');
+    $('.pagination').text('Fetching more products...');
+    $.getScript(url);
+  });
+
+  $('#archieve-list').on('click', '.archive-item', function(e) {
+    e.preventDefault();
+    $('form').hide();
+    var url = $(this).attr('href').replace('#', '');
+    console.log(url);
+    $.get(url).then(function(data) {
+      $('#mail-detail').html(data);
+    });
+  });
+
+  $('#create-newsletter').click(function(e) {
+    e.preventDefault();
+    $('form').show();
+    $('#mail-detail').empty();
+  });
+
+</script>

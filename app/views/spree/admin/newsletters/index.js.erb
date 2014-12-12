@@ -1,0 +1,11 @@
+$('#archieve-list').append("<%= escape_javascript(render(@newsletters)) %>");
+$('#pagination-indicator').remove();
+$('#archieve-list').append('<li id="pagination-indicator"><a href="#">See more...</a></li>');
+
+<% if @newsletters.next_page %>
+  $('.pagination').replaceWith('<%= j paginate(@newsletters) %>');
+  $('#pagination-indicator a').text('See more...');
+<% else %>
+  $('.pagination').text('This is the end of the archieve');
+  $('#pagination-indicator').text("That's all");
+<% end %>

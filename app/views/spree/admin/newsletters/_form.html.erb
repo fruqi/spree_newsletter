@@ -1,0 +1,29 @@
+<%= form_for @newsletter, url: admin_newsletters_path do |f| %>
+  <%= field_set_tag do %>
+    <legend style="align: 'center'">Create Newsletter</legend>
+    <div class="row">
+      <div class="twelve columns ">
+        Today's date: <%= Time.now.strftime('%D') %>
+      </div>
+
+      <div class="twelve columns ">
+        <%= f.field_container :subject do %>
+          <%= f.label :subject, 'Subject' %>
+          <%= f.text_field :subject, class: 'fullwidth title' %>
+          <%= f.error_message_on :subject %>
+        <% end %>
+      </div>
+      <div class="twelve columns ">
+        <%= f.field_container :body do %>
+          <%= f.label :body, 'Message' %>
+          <%= f.text_area :body, class: 'fullwidth title' %>
+          <%= f.error_message_on :body %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-buttons filter-actions actions">
+      <%= f.submit 'Create', class: 'icon-ok button' %>
+    </div>
+  <% end %>
+<% end %>

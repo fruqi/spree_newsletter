@@ -2,3 +2,14 @@
 Placeholder manifest file.
 the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/backend/all.css'
 */
+ul#archieve-list {
+  height: 400px;
+  overflow-y: scroll;
+  padding: 10px 20px;
+  list-style-type: none;
+  border: 1px solid #cee1f4;
+}
+
+#archieve-list li {
+  margin-bottom: 9px;
+}

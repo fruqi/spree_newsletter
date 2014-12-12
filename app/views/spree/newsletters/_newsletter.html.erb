@@ -1,0 +1,8 @@
+<li>
+  
+  <%#= link_to "#{newsletter.created_at.strftime('%D')} <br> #{newsletter.subject}", admin_newsletter_path(newsletter), remote: true %>
+  <a href="#<%= admin_newsletter_path(newsletter) %>" class="archive-item">
+      <%= newsletter.created_at.strftime('%D') %><br>
+      <%= newsletter.subject %>
+    </a>
+</li>

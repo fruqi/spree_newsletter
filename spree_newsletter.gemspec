@@ -2,13 +2,13 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_newsletter'
-  s.version     = '2.3.4'
-  s.summary     = 'TODO: Add gem summary here'
-  s.description = 'TODO: Add (optional) gem description here'
+  s.version     = '0.1'
+  s.summary     = 'Add creating newsletter functionality for Admin'
+  s.description = 'Add creating newsletter functionality for Admin'
   s.required_ruby_version = '>= 1.9.3'
 
-  # s.author    = 'You'
-  # s.email     = 'you@example.com'
+  s.author    = 'Amrta Faruqi'
+  s.email     = 'amrta@faruqi@gmail.com'
   # s.homepage  = 'http://www.spreecommerce.com'
 
   #s.files       = `git ls-files`.split("\n")
@@ -18,6 +18,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_core', '~> 2.3.4'
   s.add_dependency 'kaminari'
+  # s.add_dependency 'roadie', '~> 3.0.1'
+  # s.add_dependency 'roadie-rails', '~> 1.0.3'
+
 
   s.add_development_dependency 'capybara', '~> 2.4'
   s.add_development_dependency 'coffee-rails'

@@ -8,6 +8,6 @@ class NewsletterMailer < ActionMailer::Base
 
   def newsletter_email(subscriber, newsletter)
     @newsletter_body = newsletter.body
-    mail(to: subscriber.email, subscriber: newsletter.subject)
+    mail(to: subscriber.email, subject: newsletter.subject)
   end
 end

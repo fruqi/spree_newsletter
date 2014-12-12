@@ -9,7 +9,7 @@ Installation
 Add spree_newsletter to your Gemfile:
 
 ```ruby
-gem 'spree_newsletter'
+gem 'spree_newsletter', github: 'fruqi/spree_newsletter'
 ```
 
 Bundle your dependencies and run the installation generator:
@@ -18,6 +18,15 @@ Bundle your dependencies and run the installation generator:
 bundle
 bundle exec rails g spree_newsletter:install
 ```
+
+Adding Sidekiq
+--------------
+
+It's a good idea to add your action mailer to sidejob.
+Therefore, you can add sidekiq into your spree application and override the admin/newsletters_controller.
+
+Attention! If you have issue with sidekiq worker during the integration, there is a high possibility that your sidekiq version is below 3.x. Thus, upgrade your sidekiq and you should be good to go.
+
 
 Testing
 -------
